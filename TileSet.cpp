@@ -23,7 +23,7 @@ namespace TypeLibrary
 
 	const std::shared_ptr<const Tile> TileSet::GetTile(unsigned int tile) const
 	{
-		auto findItr = std::find_if(m_tiles.begin(), m_tiles.end(), [tile](std::pair<unsigned int, Tile> p) {
+		auto findItr = std::find_if(m_tiles.begin(), m_tiles.end(), [tile](std::pair<unsigned int, const std::shared_ptr<const Tile>> p) {
 			return p.first == tile;
 		});
 		if (findItr != m_tiles.end())

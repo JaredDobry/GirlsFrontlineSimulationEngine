@@ -32,7 +32,7 @@ namespace TypeLibrary
 		std::vector<std::shared_ptr<const Item>> GetItems() const;
 		Stats GetStats() const;
 		TileSet GetTileSet() const;
-		Tile GetTile(unsigned int tile) const;
+		const std::shared_ptr<const Tile> GetTile(unsigned int tile) const;
 		DollType GetType() const;
 
 	private:
