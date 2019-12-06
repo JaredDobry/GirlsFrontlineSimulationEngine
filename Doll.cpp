@@ -46,7 +46,7 @@ namespace TypeLibrary
 		return m_tileSet;
 	}
 
-	Tile Doll::GetTile(unsigned int tile) const
+	const std::shared_ptr<const Tile> Doll::GetTile(unsigned int tile) const
 	{
 		return m_tileSet.GetTile(tile);
 	}
