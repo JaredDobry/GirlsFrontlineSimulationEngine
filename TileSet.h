@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <set>
+#include <memory>
 #include <Tile.h>
 namespace TypeLibrary
 {
@@ -10,14 +11,14 @@ namespace TypeLibrary
 		TileSet();
 		~TileSet();
 
-		void SetTiles(const std::set<std::pair<unsigned int, Tile>> tiles);
-		void SetTile(unsigned int key, const Tile& tile);
+		void SetTiles(const std::set<std::pair<unsigned int, const std::shared_ptr<const Tile>>>& tiles);
+		void SetTile(unsigned int key, const std::shared_ptr<const Tile> tile);
 
-		std::set< std::pair<unsigned int, Tile>> GetTiles() const;
-		Tile GetTile(unsigned int tile) const;
+		const std::set<std::pair<unsigned int, const std::shared_ptr<const Tile>>>& GetTiles() const;
+		const std::shared_ptr<const Tile> GetTile(unsigned int tile) const;
 
 	private:
-		std::set<std::pair<unsigned int, Tile>> m_tiles;
+		std::set<std::pair<unsigned int, const std::shared_ptr<const Tile>>> m_tiles;
 	};
 }
 

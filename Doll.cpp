@@ -2,7 +2,8 @@
 
 namespace TypeLibrary
 {
-	Doll::Doll()
+	Doll::Doll() :
+		m_type(DollType::Unknown)
 	{
 	}
 
@@ -25,6 +26,11 @@ namespace TypeLibrary
 		m_tileSet = tileSet;
 	}
 
+	void Doll::SetType(const DollType& type)
+	{
+		m_type = type;
+	}
+
 	std::vector<std::shared_ptr<const Item>> Doll::GetItems() const
 	{
 		return m_items;
@@ -43,5 +49,9 @@ namespace TypeLibrary
 	Tile Doll::GetTile(unsigned int tile) const
 	{
 		return m_tileSet.GetTile(tile);
+	}
+	DollType Doll::GetType() const
+	{
+		return m_type;
 	}
 }
